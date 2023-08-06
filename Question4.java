@@ -6,7 +6,7 @@ public class Question4 {
         int fileCount = countFiles(file);
         System.out.println("Number of files: " + fileCount);
     }
-    
+
     public static int countFiles(File dir){
         if(!dir.isDirectory()) {
             System.out.println("Error: File not found");
@@ -16,8 +16,8 @@ public class Question4 {
         File[] allFiles = dir.listFiles();
         if(allFiles != null){
             for(File file: allFiles){
-                if(file.isDirectory()) fileCount += countFiles(file);
-                else fileCount++;
+                if(file.isDirectory())  fileCount += countFiles(file);
+                else                    fileCount++;
             }
         }
         return fileCount;
