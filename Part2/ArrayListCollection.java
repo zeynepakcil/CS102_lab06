@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ArrayListCollection implements IMethods {
-    ArrayList<Integer> al;
+    private ArrayList<Integer> al;
     public ArrayListCollection(){
         al = new ArrayList<Integer>();
     }
