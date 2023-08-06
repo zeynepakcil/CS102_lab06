@@ -1,3 +1,4 @@
+package Part1;
 public class Question1{
     public static void main(String[] args) {
         String input = "CS102 is the best";
