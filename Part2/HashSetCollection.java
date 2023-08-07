@@ -17,21 +17,13 @@ public class HashSetCollection implements IMethods{
 
     @Override
     public boolean contains(int element) {
-        for(int n: hs){
-            if(n == element) return true;
-        }
-        return false;
+        return hs.contains(element);
     }
 
     @Override
     public void removeFirstOccurrence(int element) {
-        Iterator iterator = getIterator();
-        while(iterator.hasNext()){
-            if((int)iterator.next() == element){
-                iterator.remove();
-                return ;
-            }
-        }
+        if(hs.contains(element)) 
+            hs.remove(element);
     }
 
     @Override

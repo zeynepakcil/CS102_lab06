@@ -17,21 +17,14 @@ public class TreeSetCollection implements IMethods{
 
     @Override
     public boolean contains(int element) {
-        for(int n: ts){
-            if(n == element) return true;
-        }
-        return false;
+        return ts.contains(element);
     }
 
     @Override
     public void removeFirstOccurrence(int element) {
-        Iterator iterator = getIterator();
-        while(iterator.hasNext()){
-            if((int)iterator.next() == element){
-                iterator.remove();
-                return ;
-            }
-        }
+        if(ts.contains(element)) 
+            ts.remove(element);
+
     }
 
     @Override

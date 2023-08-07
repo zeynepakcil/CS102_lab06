@@ -19,17 +19,13 @@ public class LinkedListCollection implements IMethods{
 
     @Override
     public boolean contains(int element) {
-        for(int n: ll){
-            if(n == element) return true;
-        }
-        return false;
+        return ll.contains(element);
     }
 
     @Override
     public void removeFirstOccurrence(int element) {
-        for(int i = 0; i < ll.size(); i++){
-            if(ll.get(i) == element) ll.remove(i);
-        }
+        if(ll.contains(element)) 
+            ll.remove(element);
     }
 
     @Override

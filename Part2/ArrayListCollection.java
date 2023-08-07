@@ -15,20 +15,13 @@ public class ArrayListCollection implements IMethods {
 
     @Override
     public boolean contains(int element) {
-        for(int n: al){
-            if(n == element) return true;
-        }
-        return false;
+        return al.contains(element);
     }
 
     @Override
     public void removeFirstOccurrence(int element) {
-        for(int i = 0; i < al.size(); i++){
-            if(al.get(i) == element){  
-                al.remove(i);
-                return ;
-            }
-        }
+        if(al.contains(element)) 
+            al.remove(element);
     }
 
     @Override

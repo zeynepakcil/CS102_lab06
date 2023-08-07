@@ -1,6 +1,9 @@
 package Part2;
 
+import java.awt.Dimension;
 import java.util.Iterator;
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -12,8 +15,10 @@ public class Test {
     public static void main(String[] args) {
         final int INT_NUMBER = 1000000;
         int[] array = new int[INT_NUMBER];
+        Random random = new Random();
         for (int i = 0; i < INT_NUMBER; i++) {
-            array[i] = (int) (Math.random() * 1000) + 1;
+            array[i] = (int) (Math.random() * INT_NUMBER) + 1;
+            //array[i] = random.nextInt(INT_NUMBER);
         }
 
         ArrayListCollection arrayList = new ArrayListCollection();
@@ -150,7 +155,6 @@ public class Test {
             it.next();
         long ALend5 = System.nanoTime();
         long ALtime5 = (ALend5 - ALbegin5) / 100;
-        System.out.println("hey");
 
         // --------------------------
         // HashSet
@@ -186,13 +190,13 @@ public class Test {
         };
 
         String[] columnNames = { "Data", "Time to insert all integers", "Time to insert one element",
-                "Average time to check if a random integer is contained (av. of 100 test)", "Average time to delete a random element (av. of 100 test)",
+                "Average time to check if a random integer is contained (av. of 100 test)",
+                "Average time to delete a random element (av. of 100 test)",
                 "Time to traverse the collection with iterator" };
 
         JTable table = new JTable(data, columnNames);
         JPanel panel = new JPanel();
         panel.add(table);
-
         TableModel model = new DefaultTableModel(data, columnNames) {
             @Override
             public Class getColumnClass(int column) {
@@ -201,7 +205,7 @@ public class Test {
         };
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setSize(1500, 500);
-        
+
         panel.add(scrollPane);
         JFrame frame = new JFrame();
         frame.add(panel);
